@@ -134,7 +134,7 @@ const posts = (await getCollection("blog")).sort(
           {
             posts.map((post) => (
               <li>
-                <a href={`/blog/${post.id}/`}>
+                <a href={`/blog/${post.id}`}>
                   {post.data.heroImage && (
                     <Image
                       width={post.id === posts[0].id ? 1024 : 720}

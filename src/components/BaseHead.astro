@@ -12,7 +12,15 @@ interface Props {
 	image?: ImageMetadata;
 }
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+// Clean URL: remove trailing slash and .html extension for SEO
+let pathname = Astro.url.pathname;
+if (pathname.endsWith('.html')) {
+  pathname = pathname.slice(0, -5);
+}
+if (pathname.endsWith('/') && pathname !== '/') {
+  pathname = pathname.slice(0, -1);
+}
+const canonicalURL = new URL(pathname, Astro.site);
 
 const { title, description, image = FallbackImage } = Astro.props;
 ---
@@ -44,14 +52,14 @@ const { title, description, image = FallbackImage } = Astro.props;
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
-<meta property="og:url" content={Astro.url} />
+<meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image.src, Astro.url)} />
+<meta property="og:image" content={new URL(image.src, Astro.site)} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:url" content={canonicalURL} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image.src, Astro.url)} />
+<meta property="twitter:image" content={new URL(image.src, Astro.site)} />
