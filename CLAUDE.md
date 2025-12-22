@@ -45,3 +45,8 @@ updatedDate: 'Dec 22 2024'  # optional
 ## Documentation Guidelines
 
 When generating documentation, include mermaid diagrams where appropriate for architecture, design, and flow visualization.
+
+## Blog Writing Guidelines
+
+- Use the PAS (Problem-Agitation-Solution) framework to structure blog posts, but never include explicit labels like "The Problem:", "The Agitation:", or "The Solution:" in headings
+- Let the structure guide the narrative naturally without telegraphing the framework to readers
