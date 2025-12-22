@@ -5,8 +5,6 @@ pubDate: "Dec 21 2025"
 heroImage: "../../assets/blog-placeholder-about.jpg"
 ---
 
-# The AI Dictation Duel: From Idea to Production in 3 Hours
-
 It happened while I was taking out the trash.
 
 I wasn't dictating at the moment, but my mind was racing with ideas for a tool I desperately needed. I work on my Mac all day, and as someone for whom English is a second language, typing out everything can sometimes slow down my train of thought. I _want_ to use dictation to speed things up, but Apple's built-in solution just doesn't cut it.
