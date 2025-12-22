@@ -2,7 +2,7 @@
 title: "AI Is a Force Multiplier (And Zero Times Anything Is Zero)"
 description: "Everyone's talking about AI replacing developers. But after months of building with Claude Code, I've realized the real story: AI amplifies what you bring. If you bring experience, you get a team. If you bring nothing, you get nothing."
 pubDate: "Dec 22 2025"
-heroImage: "../../assets/blog-placeholder-about.jpg"
+heroImage: "../../assets/ai-force-multiplier.png"
 ---
 
 Every day I see another video about how AI will replace developers. Often, the person giving the advice has never shipped production software—or if they have, it was long enough ago that they've forgotten what it actually takes.
@@ -59,7 +59,7 @@ AI is a force multiplier. But here's the thing about multipliers: zero times any
 
 If you bring years of engineering experience, you get a team of researchers and implementers working at superhuman speed. If you bring a YouTube tutorial and vibes, you get code that looks right but breaks in ways you won't understand.
 
-But here's the thing for people just starting out: AI can help you *build* that experience faster—if you use it right. Don't just accept what it generates. Ask it to explain. Break things on purpose. Understand why the code works, not just that it works. The shortcut to nowhere is copying code you don't understand. The shortcut to somewhere is using AI as a teacher, not just a typist.
+But here's the thing for people just starting out: AI can help you _build_ that experience faster—if you use it right. Don't just accept what it generates. Ask it to explain. Break things on purpose. Understand why the code works, not just that it works. The shortcut to nowhere is copying code you don't understand. The shortcut to somewhere is using AI as a teacher, not just a typist.
 
 The gold rush will fade. The courses will stop selling. The hype cycle will move on.
 
