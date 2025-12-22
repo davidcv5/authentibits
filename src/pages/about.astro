@@ -1,0 +1,37 @@
+---
+import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
+import Layout from '../layouts/BlogPost.astro';
+---
+
+<Layout
+	title="About Me"
+	description="Learn more about David Cruz and Authentibits"
+	pubDate={new Date('December 21 2024')}
+	heroImage={AboutHeroImage}
+>
+	<p>
+		Hi, I'm <strong>David Cruz</strong>, a software engineer passionate about building great products
+		and exploring the intersection of technology, AI, and business.
+	</p>
+
+	<h2>About This Blog</h2>
+	<p>
+		<strong>Authentibits</strong> is my personal space to share insights, tutorials, and thoughts on
+		topics that interest me. I believe in authentic, experience-driven content that provides real
+		value to readers.
+	</p>
+
+	<h2>Topics I Write About</h2>
+	<ul>
+		<li><strong>Coding</strong> - Best practices, tutorials, and deep dives into programming concepts</li>
+		<li><strong>AI & Machine Learning</strong> - Practical applications and the latest developments</li>
+		<li><strong>Business</strong> - Tech entrepreneurship and product development</li>
+		<li><strong>Technology</strong> - Reviews and analysis of emerging tech</li>
+	</ul>
+
+	<h2>Connect With Me</h2>
+	<p>
+		You can find my projects and contributions on <a href="https://github.com/davidcv5" target="_blank">GitHub</a>.
+		Feel free to reach out if you have questions or just want to connect!
+	</p>
+</Layout>
