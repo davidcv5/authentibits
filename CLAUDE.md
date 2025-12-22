@@ -21,9 +21,16 @@ Authentibits is a static blog built with Astro 5, styled with Tailwind CSS 4, an
 - Hero images must use relative paths from content files: `../../assets/image.jpg`
 
 ### Key Configuration Files
-- `src/consts.ts` - Site title and description constants used across components
+- `src/consts.ts` - Site title, description, and newsletter configuration
 - `astro.config.mjs` - Site URL, integrations (MDX, sitemap), Tailwind via Vite plugin
 - `firebase.json` - Hosting config with caching headers for static assets
+
+### Newsletter & RSS
+- Newsletter powered by Buttondown (free tier, 100 subscribers)
+- Configure newsletter username in `src/consts.ts` (`NEWSLETTER_USERNAME`)
+- RSS feed at `/rss.xml` using `@astrojs/rss`
+- Subscribe page at `/subscribe` with both newsletter and RSS options
+- See `docs/newsletter-rss-setup.md` for full setup guide
 
 ### CI/CD
 - Push to `main` → deploys to production (authentibits.web.app)

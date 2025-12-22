@@ -1,0 +1,152 @@
+---
+/**
+ * Newsletter subscription form using Buttondown
+ *
+ * To set up:
+ * 1. Create a free account at https://buttondown.com
+ * 2. Get your username from your Buttondown settings
+ * 3. Update NEWSLETTER_USERNAME in src/consts.ts
+ *
+ * Buttondown is free for up to 100 subscribers, used by Astro's own newsletter.
+ */
+import { NEWSLETTER_USERNAME } from '../consts';
+
+interface Props {
+  variant?: 'inline' | 'card';
+  showDescription?: boolean;
+}
+
+const { variant = 'card', showDescription = true } = Astro.props;
+const isConfigured = NEWSLETTER_USERNAME && NEWSLETTER_USERNAME !== 'YOUR_BUTTONDOWN_USERNAME';
+---
+
+{isConfigured ? (
+  <div class:list={['newsletter-form', variant]}>
+    {showDescription && (
+      <div class="newsletter-header">
+        <h3>Subscribe to the Newsletter</h3>
+        <p>Get notified when new posts are published. No spam, unsubscribe anytime.</p>
+      </div>
+    )}
+    <form
+      action={`https://buttondown.com/api/emails/embed-subscribe/${NEWSLETTER_USERNAME}`}
+      method="post"
+      target="popupwindow"
+      class="embeddable-buttondown-form"
+    >
+      <div class="form-row">
+        <label for="bd-email" class="sr-only">Email address</label>
+        <input
+          type="email"
+          name="email"
+          id="bd-email"
+          placeholder="Enter your email"
+          required
+        />
+        <button type="submit">Subscribe</button>
+      </div>
+    </form>
+  </div>
+) : (
+  <div class="newsletter-form card newsletter-placeholder">
+    <div class="newsletter-header">
+      <h3>Newsletter Coming Soon</h3>
+      <p>Subscribe via RSS to get notified when new posts are published.</p>
+    </div>
+  </div>
+)}
+
+<style>
+  .newsletter-form {
+    width: 100%;
+  }
+
+  .newsletter-form.card {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 16px;
+    padding: 2rem;
+  }
+
+  .newsletter-form.inline {
+    padding: 0;
+  }
+
+  .newsletter-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .newsletter-header h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+    color: #1a1a1a;
+  }
+
+  .newsletter-header p {
+    font-size: 0.9375rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .form-row {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  input[type="email"] {
+    flex: 1;
+    padding: 0.875rem 1rem;
+    font-size: 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    background: #fff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  input[type="email"]:focus {
+    outline: none;
+    border-color: #007cf0;
+    box-shadow: 0 0 0 3px rgba(0, 124, 240, 0.1);
+  }
+
+  input[type="email"]::placeholder {
+    color: #94a3b8;
+  }
+
+  button[type="submit"] {
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #007cf0 0%, #00dfd8 100%);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    white-space: nowrap;
+  }
+
+  button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 124, 240, 0.3);
+  }
+
+  button[type="submit"]:active {
+    transform: translateY(0);
+  }
+
+  .newsletter-placeholder {
+    text-align: center;
+  }
+
+  @media (max-width: 500px) {
+    .form-row {
+      flex-direction: column;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+    }
+  }
+</style>
