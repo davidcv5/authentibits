@@ -5,7 +5,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import FormattedDate from "../components/FormattedDate.astro";
-import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+import { SITE_DESCRIPTION, SITE_TITLE, SITE_HEADLINE } from "../consts";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -35,10 +35,23 @@ const posts = (await getCollection("blog")).sort(
         font-weight: 900;
         margin-bottom: 1.5rem;
         letter-spacing: -0.04em;
-        line-height: 1;
-        background: linear-gradient(135deg, #007cf0, #00dfd8);
+        line-height: 1.05;
+        background: linear-gradient(135deg, #007cf0, #00dfd8, #2337ff);
+        background-size: 200% auto;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+        animation: gradient 8s ease infinite;
+      }
+      @keyframes gradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
       }
       .intro p {
         font-size: 1.5rem;
@@ -126,7 +139,7 @@ const posts = (await getCollection("blog")).sort(
     <Header />
     <main>
       <section class="intro">
-        <h1>{SITE_TITLE}</h1>
+        <h1>{SITE_HEADLINE}</h1>
         <p>{SITE_DESCRIPTION}</p>
       </section>
       <section>

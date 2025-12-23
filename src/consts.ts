@@ -4,3 +4,4 @@
 export const SITE_TITLE = "Authentibits";
 export const SITE_DESCRIPTION =
   "Where I share my ideas, builds, and discoveries along the way.";
+export const SITE_HEADLINE = "Engineering the Future of Bits & AI";
