@@ -26,7 +26,7 @@ Authentibits is a static blog built with Astro 5, styled with Tailwind CSS 4, an
 - `firebase.json` - Hosting config with caching headers for static assets
 
 ### CI/CD
-- Push to `main` → deploys to production (authentibits.web.app)
+- Push to `main` → deploys to production (authentibits.com)
 - Pull requests → deploys to preview channel with comment on PR
 - Workflows in `.github/workflows/` use `FIREBASE_SERVICE_ACCOUNT_AUTHENTIBITS` secret
 

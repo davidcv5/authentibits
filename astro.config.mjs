@@ -8,7 +8,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://authentibits.web.app',
+  site: 'https://authentibits.com',
   trailingSlash: 'never',
   build: {
     format: 'file',
