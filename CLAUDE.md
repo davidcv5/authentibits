@@ -53,3 +53,4 @@ When generating documentation, include mermaid diagrams where appropriate for ar
 - Use the PAS (Problem-Agitation-Solution) framework to structure blog posts, but never include explicit labels like "The Problem:", "The Agitation:", or "The Solution:" in headings
 - Let the structure guide the narrative naturally without telegraphing the framework to readers
 - See `docs/brand-guidelines.md` for comprehensive voice, tone, and structural patterns
+- For requests like "start a raw post", "start writing", "I dictated this", or "turn this raw idea into a post", follow `docs/writing-workflow.md`: create the raw note first, preserve the raw thinking, edit as a proofreader/editor, link the final post back to the raw note, and audit the final draft against Wikipedia's Signs of AI writing before publishing.

@@ -97,6 +97,14 @@ const posts = (await getCollection("blog")).sort(
 				text-decoration: none;
 			}
 
+			.post-link[data-has-image="false"] {
+				grid-template-columns: 1fr;
+			}
+
+			.post-link[data-has-image="false"] .post-copy {
+				max-width: 680px;
+			}
+
 			.post-link:hover h3 {
 				color: var(--color-accent);
 			}
@@ -170,7 +178,11 @@ const posts = (await getCollection("blog")).sort(
 					{
 						posts.map((post) => (
 							<li>
-								<a href={`/blog/${post.id}`} class="post-link">
+								<a
+									href={`/blog/${post.id}`}
+									class="post-link"
+									data-has-image={post.data.heroImage ? "true" : "false"}
+								>
 									{post.data.heroImage && (
 										<Image
 											width={360}

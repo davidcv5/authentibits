@@ -13,7 +13,19 @@ const blog = defineCollection({
 			pubDate: z.coerce.date(),
 			updatedDate: z.coerce.date().optional(),
 			heroImage: image().optional(),
+			rawSlug: z.string().optional(),
 		}),
 });
 
-export const collections = { blog };
+const raw = defineCollection({
+	loader: glob({ base: './src/content/raw', pattern: '**/*.{md,mdx}' }),
+	schema: z.object({
+		title: z.string(),
+		description: z.string(),
+		pubDate: z.coerce.date(),
+		updatedDate: z.coerce.date().optional(),
+		sourceType: z.enum(['dictation', 'notes', 'session']).default('notes'),
+	}),
+});
+
+export const collections = { blog, raw };

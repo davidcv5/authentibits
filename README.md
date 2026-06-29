@@ -43,7 +43,8 @@ authentibits/
 ├── src/
 │   ├── assets/           # Images and static assets
 │   ├── components/       # Astro components
-│   ├── content/blog/     # Blog posts (MD/MDX)
+│   ├── content/blog/     # Edited blog posts (MD/MDX)
+│   ├── content/raw/      # Public raw source notes
 │   ├── layouts/          # Page layouts
 │   ├── pages/            # Route pages
 │   └── styles/           # Global styles
@@ -71,8 +72,11 @@ env ASTRO_DEV_BACKGROUND=1 npm run dev -- --host 127.0.0.1
 
 ## Writing Blog Posts
 
-1. Create a new `.md` or `.mdx` file in `src/content/blog/`
-2. Add frontmatter with required fields:
+Use the transparent raw-to-polished workflow in [docs/writing-workflow.md](docs/writing-workflow.md) when a post starts from notes, dictation, or a rough idea.
+
+1. Create a raw source note in `src/content/raw/`
+2. Create the final `.md` or `.mdx` file in `src/content/blog/`
+3. Add blog frontmatter:
 
 ```yaml
 ---
@@ -80,11 +84,12 @@ title: 'Your Post Title'
 description: 'Brief description for SEO'
 pubDate: 'Dec 21 2024'
 heroImage: '../../assets/blog-placeholder-1.jpg'
+rawSlug: 'your-post-slug'
 ---
 ```
 
-3. Write your content in Markdown/MDX
-4. Commit and push - CI/CD handles the rest
+4. Write and edit your content in Markdown/MDX
+5. Commit and push - CI/CD handles the rest
 
 ## Deployment
 

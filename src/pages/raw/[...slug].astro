@@ -1,0 +1,21 @@
+---
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import RawNote from '../../layouts/RawNote.astro';
+
+export async function getStaticPaths() {
+	const notes = await getCollection('raw');
+	return notes.map((note) => ({
+		params: { slug: note.id },
+		props: note,
+	}));
+}
+
+type Props = CollectionEntry<'raw'>;
+
+const note = Astro.props;
+const { Content } = await render(note);
+---
+
+<RawNote {...note.data}>
+	<Content />
+</RawNote>
