@@ -1,0 +1,173 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import { SITE_TITLE } from "../consts";
+
+const description =
+	"About David Cruz and the thinking behind Authentibits.";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`About | ${SITE_TITLE}`} description={description} />
+		<style>
+			main {
+				width: 760px;
+				padding-top: 4rem;
+			}
+
+			.about-header {
+				margin-bottom: 3rem;
+				border-bottom: 1px solid var(--color-border);
+				padding-bottom: 2.25rem;
+			}
+
+			.kicker {
+				margin-bottom: 0.85rem;
+				color: var(--color-accent);
+				font-size: 0.85rem;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 0.08em;
+			}
+
+			h1 {
+				margin-bottom: 1rem;
+				font-size: 3.2rem;
+				line-height: 1.08;
+			}
+
+			.lede {
+				max-width: 660px;
+				margin: 0;
+				color: var(--color-muted);
+				font-size: 1.16rem;
+				line-height: 1.58;
+			}
+
+			.about-section {
+				margin-top: 2.5rem;
+			}
+
+			.about-section:first-child {
+				margin-top: 0;
+			}
+
+			.about-section h2 {
+				margin-bottom: 0.9rem;
+				font-size: 1.45rem;
+			}
+
+			.link-row {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.8rem 1.25rem;
+				margin-top: 1.5rem;
+			}
+
+			.link-row a {
+				font-weight: 700;
+				text-decoration: none;
+			}
+
+			@media (max-width: 720px) {
+				main {
+					padding-top: 2.75rem;
+				}
+
+				.about-header {
+					margin-bottom: 2.25rem;
+					padding-bottom: 1.75rem;
+				}
+
+				h1 {
+					font-size: 2.35rem;
+				}
+
+				.lede {
+					font-size: 1.05rem;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<header class="about-header">
+				<p class="kicker">About</p>
+				<h1>David Cruz</h1>
+				<p class="lede">
+					I write about building software, making things in public, and trying
+					to stay grounded when ambition and technology make it easy to drift.
+				</p>
+			</header>
+
+			<div class="prose">
+				<section class="about-section">
+					<h2>What This Is</h2>
+					<p>
+						Authentibits is my personal blog. Some posts are technical:
+						debugging stories, small tools, AI-assisted development, and the
+						kind of practical lessons that only show up after something breaks.
+					</p>
+					<p>
+						Other posts are more personal: creating because the work feels worth
+						doing, staying healthy, parenting, money, discipline, and the
+						ordinary parts of life that shape the work more than we usually
+						admit.
+					</p>
+				</section>
+
+				<section class="about-section">
+					<h2>The Questions Underneath</h2>
+					<p>
+						A lot of the writing comes back to three questions:
+					</p>
+					<ul>
+						<li>How do I pursue ambition without losing peace?</li>
+						<li>
+							How do I make things in public without making attention the point?
+						</li>
+						<li>How do I use technology without letting it use me?</li>
+					</ul>
+					<p>
+						The topics change, but those questions keep coming back. I want the
+						writing to stay honest, useful, and specific, even when it does not
+						fit neatly into one category.
+					</p>
+				</section>
+
+				<section class="about-section">
+					<h2>How I Write Here</h2>
+					<p>
+						I am not trying to sound like I have everything figured out. Most of
+						the writing starts with something I am actively working through: a
+						bug, a tool, a habit, a tradeoff, or a thought that keeps coming
+						back.
+					</p>
+					<p>
+						Some posts start as raw notes before becoming edited essays. When
+						that happens, I link the final version back to the original note so
+						the thinking stays visible.
+					</p>
+				</section>
+
+				<section class="about-section">
+					<h2>Following Along</h2>
+					<p>
+						If you want more, this site is the place to follow. The goal is
+						simple: keep making work I respect because the work itself feels
+						worth making.
+					</p>
+					<div class="link-row">
+						<a href="/">Recent writing</a>
+						<a href="/rss.xml">RSS feed</a>
+					</div>
+				</section>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
