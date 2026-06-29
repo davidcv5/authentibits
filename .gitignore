@@ -1,5 +1,6 @@
 # build output
 dist/
+.firebase/
 # generated types
 .astro/
 
@@ -19,6 +20,9 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+
+# local agent instructions
+AGENTS.md
 
 # jetbrains setting folder
 .idea/

@@ -1,175 +1,199 @@
 ---
-import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
 import FormattedDate from "../components/FormattedDate.astro";
-import { SITE_DESCRIPTION, SITE_TITLE, SITE_HEADLINE } from "../consts";
+import Header from "../components/Header.astro";
+import { SITE_DESCRIPTION, SITE_HEADLINE, SITE_TITLE } from "../consts";
 
 const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 ---
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    <style>
-      main {
-        width: 1000px;
-        max-width: calc(100% - 2rem);
-        margin: auto;
-        padding-top: 4rem;
-      }
-      .intro {
-        margin-bottom: 6rem;
-        text-align: center;
-        max-width: 800px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      .intro h1 {
-        font-size: 5rem;
-        font-weight: 900;
-        margin-bottom: 1.5rem;
-        letter-spacing: -0.04em;
-        line-height: 1.05;
-        background: linear-gradient(135deg, #007cf0, #00dfd8, #2337ff);
-        background-size: 200% auto;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation: gradient 8s ease infinite;
-      }
-      @keyframes gradient {
-        0% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-        100% {
-          background-position: 0% 50%;
-        }
-      }
-      .intro p {
-        font-size: 1.5rem;
-        line-height: 1.6;
-        color: rgb(var(--gray));
-        font-weight: 400;
-      }
-      ul {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 4rem;
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-      }
-      ul li {
-        width: 100%;
-      }
-      ul li:first-child {
-        grid-column: span 2;
-        margin-bottom: 2rem;
-      }
-      ul li a {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-        text-decoration: none;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-      ul li img {
-        width: 100%;
-        aspect-ratio: 16 / 9;
-        object-fit: cover;
-        border-radius: 32px;
-        box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-      .title {
-        margin: 0;
-        color: rgb(var(--black));
-        font-size: 1.75rem;
-        line-height: 1.25;
-        font-weight: 800;
-        letter-spacing: -0.02em;
-      }
-      ul li:first-child .title {
-        font-size: 3rem;
-      }
-      .date {
-        margin: 0;
-        color: #007cf0;
-        font-size: 0.875rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-      }
-      ul li a:hover {
-        transform: translateY(-8px);
-      }
-      ul li a:hover img {
-        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
-        transform: scale(1.02);
-      }
-      ul li a:hover .title {
-        color: #007cf0;
-      }
-      @media (max-width: 850px) {
-        .intro h1 {
-          font-size: 3.5rem;
-        }
-        ul {
-          grid-template-columns: 1fr;
-          gap: 3rem;
-        }
-        ul li:first-child {
-          grid-column: span 1;
-        }
-        ul li:first-child .title {
-          font-size: 2.25rem;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <Header />
-    <main>
-      <section class="intro">
-        <h1>{SITE_HEADLINE}</h1>
-        <p>{SITE_DESCRIPTION}</p>
-      </section>
-      <section>
-        <ul>
-          {
-            posts.map((post) => (
-              <li>
-                <a href={`/blog/${post.id}`}>
-                  {post.data.heroImage && (
-                    <Image
-                      width={post.id === posts[0].id ? 1024 : 720}
-                      height={post.id === posts[0].id ? 512 : 360}
-                      src={post.data.heroImage}
-                      alt=""
-                      loading={post.id === posts[0].id ? "eager" : "lazy"}
-                    />
-                  )}
-                  <div class="content">
-                    <p class="date">
-                      <FormattedDate date={post.data.pubDate} />
-                    </p>
-                    <h4 class="title">{post.data.title}</h4>
-                  </div>
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </section>
-    </main>
-    <Footer />
-  </body>
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			main {
+				width: 900px;
+				padding-top: 5rem;
+			}
+
+			.intro {
+				max-width: 680px;
+				margin-bottom: 4rem;
+			}
+
+			.kicker {
+				margin-bottom: 0.85rem;
+				color: var(--color-accent);
+				font-size: 0.85rem;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 0.08em;
+			}
+
+			.intro h1 {
+				max-width: 760px;
+				margin-bottom: 1.25rem;
+				font-size: 3.5rem;
+				line-height: 1.08;
+			}
+
+			.intro p:not(.kicker) {
+				max-width: 620px;
+				color: var(--color-muted);
+				font-size: 1.15rem;
+			}
+
+			.section-heading {
+				display: flex;
+				align-items: baseline;
+				justify-content: space-between;
+				gap: 1rem;
+				margin-bottom: 1rem;
+				border-bottom: 1px solid var(--color-border);
+				padding-bottom: 0.8rem;
+			}
+
+			.section-heading h2 {
+				margin: 0;
+				font-size: 1rem;
+				text-transform: uppercase;
+				letter-spacing: 0.08em;
+			}
+
+			.section-heading a {
+				color: var(--color-muted);
+				font-size: 0.92rem;
+				text-decoration: none;
+			}
+
+			.section-heading a:hover {
+				color: var(--color-ink);
+			}
+
+			.post-list {
+				display: grid;
+				gap: 0;
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+
+			.post-list li {
+				border-bottom: 1px solid var(--color-border);
+			}
+
+			.post-link {
+				display: grid;
+				grid-template-columns: 180px 1fr;
+				gap: 1.5rem;
+				padding: 1.5rem 0;
+				color: inherit;
+				text-decoration: none;
+			}
+
+			.post-link:hover h3 {
+				color: var(--color-accent);
+			}
+
+			.post-link img {
+				width: 100%;
+				aspect-ratio: 4 / 3;
+				object-fit: cover;
+			}
+
+			.post-copy {
+				min-width: 0;
+			}
+
+			.date {
+				margin-bottom: 0.5rem;
+				color: var(--color-soft);
+				font-size: 0.9rem;
+			}
+
+			.post-copy h3 {
+				margin-bottom: 0.5rem;
+				font-size: 1.45rem;
+			}
+
+			.description {
+				margin: 0;
+				color: var(--color-muted);
+				font-size: 1rem;
+				line-height: 1.55;
+			}
+
+			@media (max-width: 720px) {
+				main {
+					padding-top: 3rem;
+				}
+
+				.intro {
+					margin-bottom: 3rem;
+				}
+
+				.intro h1 {
+					font-size: 2.35rem;
+				}
+
+				.post-link {
+					grid-template-columns: 1fr;
+					gap: 1rem;
+				}
+
+				.post-link img {
+					aspect-ratio: 16 / 9;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="intro">
+				<p class="kicker">Authentibits</p>
+				<h1>{SITE_HEADLINE}</h1>
+				<p>{SITE_DESCRIPTION}</p>
+			</section>
+			<section aria-labelledby="recent-writing">
+				<div class="section-heading">
+					<h2 id="recent-writing">Recent writing</h2>
+					<a href="/rss.xml">RSS feed</a>
+				</div>
+				<ul class="post-list">
+					{
+						posts.map((post) => (
+							<li>
+								<a href={`/blog/${post.id}`} class="post-link">
+									{post.data.heroImage && (
+										<Image
+											width={360}
+											height={270}
+											src={post.data.heroImage}
+											alt=""
+											loading={post.id === posts[0].id ? "eager" : "lazy"}
+										/>
+									)}
+									<div class="post-copy">
+										<p class="date">
+											<FormattedDate date={post.data.pubDate} />
+										</p>
+										<h3>{post.data.title}</h3>
+										<p class="description">{post.data.description}</p>
+									</div>
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</section>
+		</main>
+		<Footer />
+	</body>
 </html>

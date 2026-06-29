@@ -21,7 +21,7 @@ I told Claude Code what I wanted:
 
 > "Create a comprehensive plan to kickstart the site. I want it to have CI/CD so I can simply add a new post and it will build and deploy to Firebase hosting."
 
-Before writing any code, Claude searched for the latest information on Astro 5, Firebase Hosting, and GitHub Actions to ensure the approach was current. Then it proposed an architecture:
+Before writing any code, Claude searched for the latest information on Astro, Firebase Hosting, and GitHub Actions to ensure the approach was current. Then it proposed an architecture:
 
 ```
 Write Post → Git Push → GitHub Actions → Firebase Hosting
@@ -40,7 +40,7 @@ With a single "yes, create it" from me, Claude Code executed:
 
 **1. Project Initialization**
 
-- Astro 5 with the official blog template
+- Astro with the official blog template
 - Tailwind CSS 4 integration
 - MDX support for interactive posts
 - TypeScript with strict mode

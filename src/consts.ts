@@ -3,5 +3,5 @@
 
 export const SITE_TITLE = "Authentibits";
 export const SITE_DESCRIPTION =
-  "Where I share my ideas, builds, and discoveries along the way.";
-export const SITE_HEADLINE = "Engineering the Future of Bits & AI";
+  "Notes on software, AI, life, and whatever I'm figuring out next.";
+export const SITE_HEADLINE = "A place for what I'm learning.";

@@ -2,6 +2,9 @@
   "name": "authentibits",
   "type": "module",
   "version": "1.0.0",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -9,15 +12,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.3.13",
-    "@astrojs/rss": "^4.0.14",
-    "@astrojs/sitemap": "^3.6.0",
-    "@tailwindcss/vite": "^4.1.18",
-    "astro": "^5.16.6",
-    "sharp": "^0.34.3",
-    "tailwindcss": "^4.1.18"
-  },
-  "devDependencies": {
-    "firebase-tools": "^14.0.0"
+    "@astrojs/mdx": "^7.0.0",
+    "@astrojs/rss": "^4.0.18",
+    "@astrojs/sitemap": "^3.7.3",
+    "@tailwindcss/vite": "^4.3.2",
+    "astro": "^7.0.3",
+    "sharp": "^0.35.2",
+    "tailwindcss": "^4.3.2"
   }
 }

@@ -10,9 +10,11 @@ npm run build    # Build production site to ./dist/
 npm run preview  # Preview production build locally
 ```
 
+Astro 7 requires Node `>=22.12.0`. Use the version in `.nvmrc` before installing dependencies.
+
 ## Architecture
 
-Authentibits is a static blog built with Astro 5, styled with Tailwind CSS 4, and deployed to Firebase Hosting via GitHub Actions.
+Authentibits is a static personal site built with Astro 7, styled with Tailwind CSS 4, and deployed to Firebase Hosting via GitHub Actions.
 
 ### Content Flow
 - Blog posts are Markdown/MDX files in `src/content/blog/`

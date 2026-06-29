@@ -1,6 +1,6 @@
 # Authentibits
 
-A personal technical blog built with [Astro](https://astro.build), hosted on [Firebase Hosting](https://firebase.google.com/docs/hosting).
+A personal site for essays, build notes, and companion posts for video ideas. Built with [Astro](https://astro.build), styled with Tailwind CSS, and hosted on [Firebase Hosting](https://firebase.google.com/docs/hosting).
 
 ## Architecture
 
@@ -21,12 +21,13 @@ flowchart LR
         E --> G[Production Site]
     end
 
-    G --> H[authentibits.web.app]
+    G --> H[authentibits.com]
 ```
 
 ## Features
 
-- Static site generation with Astro 5
+- Static site generation with Astro 7
+- Minimal writing-first theme
 - MDX support for interactive blog posts
 - Tailwind CSS for styling
 - Automatic sitemap and RSS feed
@@ -60,6 +61,14 @@ authentibits/
 | `npm run build`   | Build production site to `./dist/`          |
 | `npm run preview` | Preview build locally before deploying      |
 
+Astro 7 requires Node `>=22.12.0`. Use the version in `.nvmrc` before installing dependencies.
+
+When running `astro dev` from Codex or another agentic shell, Astro may try to spawn a background server. Use foreground mode when you need a visible local preview:
+
+```bash
+env ASTRO_DEV_BACKGROUND=1 npm run dev -- --host 127.0.0.1
+```
+
 ## Writing Blog Posts
 
 1. Create a new `.md` or `.mdx` file in `src/content/blog/`
@@ -86,7 +95,7 @@ heroImage: '../../assets/blog-placeholder-1.jpg'
 ### Manual (if needed)
 ```bash
 npm run build
-npx firebase deploy --only hosting
+npx firebase-tools@latest deploy --only hosting
 ```
 
 ## Setup for New Contributors
