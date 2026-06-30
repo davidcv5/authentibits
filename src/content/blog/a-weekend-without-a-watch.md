@@ -2,6 +2,7 @@
 title: "A Weekend Without a Watch"
 description: "A weekend away reminded me that there will always be more to build, but some moments only happen once."
 pubDate: "Jun 30 2026"
+heroImage: "../../assets/weekend-without-a-watch-dolphin.jpg"
 rawSlug: "you-need-to-take-breaks"
 ---
 
